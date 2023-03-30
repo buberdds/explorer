@@ -21,7 +21,7 @@ jobs:
           cache: 'yarn'
       - run: yarn install --frozen-lockfile
 
-      - run: yarn build && yarn build-storybook
+      - run: yarn build-preview && yarn build-storybook
       - name: Deploy App to Cloudflare Workers
         id: wrangler
         uses: buberdds/wrangler-action@1.0.2
