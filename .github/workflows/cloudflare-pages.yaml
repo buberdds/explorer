@@ -39,3 +39,4 @@ jobs:
           comment-id: ${{ github.event.comment.id }}
           body: |
             🚀 Preview URL: ${{ steps.cloudflare.outputs.url }}
+          edit-mode: replace
