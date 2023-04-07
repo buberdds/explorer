@@ -24,6 +24,7 @@ jobs:
       - run: yarn build-preview
 
       - name: Publish to Cloudflare Pages
+        id: cloudflare
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFRONT_API_TOKEN }}
@@ -36,4 +37,4 @@ jobs:
         with:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
-            🚀 Preview URL: ${{ steps.cloudflare-publish.outputs.url }}
+            🚀 Preview URL: ${{ steps.cloudflare.outputs.url }}
