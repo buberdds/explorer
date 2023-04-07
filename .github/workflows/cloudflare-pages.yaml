@@ -20,7 +20,6 @@ jobs:
           node-version: 16.x
           cache: 'yarn'
       - run: yarn install --frozen-lockfile
-
       - run: yarn build-preview
 
       - name: Publish to Cloudflare Pages
@@ -32,24 +31,8 @@ jobs:
           projectName: explorer
           directory: build
 
-      - name: Find Comment
-        uses: peter-evans/find-comment@v2
-        id: commentId
-        with:
-          issue-number: ${{ github.event.pull_request.number }}
-          comment-author: 'github-actions[bot]'
-          body-includes: Preview URL
-
-      - name: Add Comment to PR
-        uses: peter-evans/create-or-update-comment@v3
-        with:
-          issue-number: ${{ github.event.pull_request.number }}
-          comment-id: ${{ steps.comment.outputs.commentId }}
-          body: |
-            🚀 Preview URL: ${{ steps.cloudflare.outputs.url }}
-          edit-mode: replace
-
+      - name: Add comment to PR
       - uses: mshick/add-pr-comment@v2
         with:
           message: |
-            Another comment action: ${{ steps.cloudflare.outputs.url }}
+            🚀 Preview URL: ${{ steps.cloudflare.outputs.url }}
