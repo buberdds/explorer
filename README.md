@@ -1,8 +1,8 @@
 # Oasis Explorer
 
-[![ci-build](https://github.com/oasisprotocol/explorer/actions/workflows/ci-build.yaml/badge.svg)](https://github.com/oasisprotocol/explorer/actions/workflows/ci-build.yaml)
-[![ci-lint](https://github.com/oasisprotocol/explorer/actions/workflows/ci-lint.yaml/badge.svg)](https://github.com/oasisprotocol/explorer/actions/workflows/ci-lint.yaml)
-[![ci-test](https://github.com/oasisprotocol/explorer/actions/workflows/ci-test.yaml/badge.svg)](https://github.com/oasisprotocol/explorer/actions/workflows/ci-test.yaml)
+[![ci-build](https://github.com/buberdds/explorer/actions/workflows/ci-build.yaml/badge.svg)](https://github.com/buberdds/explorer/actions/workflows/ci-build.yaml)
+[![ci-lint](https://github.com/buberdds/explorer/actions/workflows/ci-lint.yaml/badge.svg)](https://github.com/buberdds/explorer/actions/workflows/ci-lint.yaml)
+[![ci-test](https://github.com/buberdds/explorer/actions/workflows/ci-test.yaml/badge.svg)](https://github.com/buberdds/explorer/actions/workflows/ci-test.yaml)
 
 Official explorer for the Oasis Network.
 
