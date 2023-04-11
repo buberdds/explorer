@@ -1,0 +1,5 @@
+---
+'explorer-frontend': minor
+---
+
+Baz
