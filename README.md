@@ -3,6 +3,7 @@
 [![ci-build](https://github.com/buberdds/explorer/actions/workflows/ci-build.yaml/badge.svg)](https://github.com/buberdds/explorer/actions/workflows/ci-build.yaml)
 [![ci-lint](https://github.com/buberdds/explorer/actions/workflows/ci-lint.yaml/badge.svg)](https://github.com/buberdds/explorer/actions/workflows/ci-lint.yaml)
 [![ci-test](https://github.com/buberdds/explorer/actions/workflows/ci-test.yaml/badge.svg)](https://github.com/buberdds/explorer/actions/workflows/ci-test.yaml)
+[![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)
 
 Official explorer for the Oasis Network.
 
@@ -43,3 +44,50 @@ REACT_APP_API=http://localhost:8008/v1/ yarn start
 ```
 
 </details>
+
+
+## Getting started
+
+### Installing and running Oasis Explorer
+
+You can quickly get started with the following commands:
+
+```shell
+yarn install
+yarn start
+```
+
+Then go to <http://localhost:1234> to access the app.
+
+### Code style
+
+This repository uses [prettier] as a code formatter and [eslint] as it's linter.
+You can use the following commands:
+
+```bash
+# Lint the whole repository
+yarn lint
+
+# Fix linting issues
+yarn lint:fix
+```
+
+#### Git Commit Messages
+
+A quick summary:
+
+- Separate subject from body with a blank line.
+- Limit the subject line to 72 characters.
+- Capitalize the subject line.
+- Do not end the subject line with a period.
+- Use the present tense ("Add feature" not "Added feature").
+- Use the imperative mood ("Move component to..." not "Moves component to...").
+- Wrap the body at 80 characters.
+- Use the body to explain _what_ and _why_ vs. _how_.
+
+A detailed post on Git commit messages: [How To Write a Git Commit Message].
+
+[Jest]: https://github.com/facebook/jest
+[prettier]: https://prettier.io/
+[eslint]: https://github.com/eslint/eslint
+[How To Write a Git Commit Message]: https://chris.beams.io/posts/git-commit/
