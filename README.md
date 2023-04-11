@@ -1,5 +1,9 @@
 # Oasis Explorer
 
+[![ci-build](https://github.com/oasisprotocol/explorer/actions/workflows/ci-build.yaml/badge.svg)](https://github.com/oasisprotocol/explorer/actions/workflows/ci-build.yaml)
+[![ci-lint](https://github.com/oasisprotocol/explorer/actions/workflows/ci-lint.yaml/badge.svg)](https://github.com/oasisprotocol/explorer/actions/workflows/ci-lint.yaml)
+[![ci-test](https://github.com/oasisprotocol/explorer/actions/workflows/ci-test.yaml/badge.svg)](https://github.com/oasisprotocol/explorer/actions/workflows/ci-test.yaml)
+
 Official explorer for the Oasis Network.
 
 :warning: **Oasis Explorer is currently in development and is not available yet.**
@@ -16,6 +20,7 @@ Bleeding-edge API version
 OpenAPI spec for the bleeding-edge version is at https://github.com/oasisprotocol/oasis-indexer/blob/main/api/spec/v1.yaml.
 
 To quickly run latest emerald indexer locally without running a node, replace https://github.com/oasisprotocol/oasis-indexer/blob/d48de37/tests/e2e/config/e2e-dev.yml#L1-L8 with:
+
 ```yaml
 analysis:
   analyzers:

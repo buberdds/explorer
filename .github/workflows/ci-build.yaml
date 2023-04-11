@@ -1,0 +1,30 @@
+name: ci-build
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: 'yarn'
+      - run: yarn install --frozen-lockfile | tee yarn-install-out
+      - run: yarn build | tee yarn-build-out
+      - name: Print yarn install time
+        run: |
+          echo '```sh' >> $GITHUB_STEP_SUMMARY
+          cat yarn-install-out | tee -a $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+      - name: Print bundle size
+        run: |
+          echo '```sh' >> $GITHUB_STEP_SUMMARY
+          cat yarn-build-out | tee -a $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
