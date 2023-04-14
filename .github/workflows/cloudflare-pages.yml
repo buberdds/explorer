@@ -1,0 +1,49 @@
+name: CloudFlare
+
+# Trigger the workflow when:
+on:
+  # A push occurs to one of the matched branches.
+  push:
+    branches: [master]
+  # Or when a pull request event occurs for a pull request against one of the
+  # matched branches.
+  pull_request:
+    branches: [master]
+
+jobs:
+  publish:
+    # This name appears in GitHub's Checks API.
+    name: publish
+    # Do not trigger job for dependency update bot.
+    if: github.actor != 'renovate[bot]'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up Node.js 18
+        uses: actions/setup-node@v3.5.0
+        with:
+          node-version: "18.x"
+          cache: yarn
+      - run: yarn install --frozen-lockfile
+      - run: yarn build-preview
+      - name: Publish to Cloudflare Pages
+        # Id is needed to access output in a next step
+        id: cloudflare
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFRONT_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFRONT_ACCOUNT_ID }}
+          # Project name created via CloudFlare dashboard
+          projectName: explorer
+          directory: build
+      # On a subsequent run the the original comment will be updated.
+      - name: Add Comment to PR
+        uses: mshick/add-pr-comment@v2
+        with:
+          message: |
+            Preview URL: ${{ steps.cloudflare.outputs.url }}
