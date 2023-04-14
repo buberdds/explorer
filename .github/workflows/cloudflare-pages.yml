@@ -46,4 +46,4 @@ jobs:
         uses: mshick/add-pr-comment@v2
         with:
           message: |
-            Preview URL: ${{ steps.cloudflare.outputs.url }}
+            ✅ Preview URL: ${{ steps.cloudflare.outputs.url }}
