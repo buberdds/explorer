@@ -1,9 +1,9 @@
 # Oasis Explorer
 
-[![ci-build](https://github.com/buberdds/explorer/actions/workflows/ci-build.yaml/badge.svg)](https://github.com/buberdds/explorer/actions/workflows/ci-build.yaml)
-[![ci-lint](https://github.com/buberdds/explorer/actions/workflows/ci-lint.yaml/badge.svg)](https://github.com/buberdds/explorer/actions/workflows/ci-lint.yaml)
-[![ci-test](https://github.com/buberdds/explorer/actions/workflows/ci-test.yaml/badge.svg)](https://github.com/buberdds/explorer/actions/workflows/ci-test.yaml)
-[![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)
+[![CI build status][github-ci-build-badge]][github-ci-build-link]
+[![CI test status][github-ci-test-badge]][github-ci-test-link]
+[![CI lint status][github-ci-lint-badge]][github-ci-lint-link]
+[![Renovate enabled][github-renovate-badge]][github-renovate-link]
 
 Official explorer for the Oasis Network.
 
@@ -45,7 +45,6 @@ REACT_APP_API=http://localhost:8008/v1/ yarn start
 
 </details>
 
-
 ## Getting started
 
 ### Installing and running Oasis Explorer
@@ -53,7 +52,7 @@ REACT_APP_API=http://localhost:8008/v1/ yarn start
 You can quickly get started with the following commands:
 
 ```shell
-yarn install
+yarn
 yarn start
 ```
 
@@ -87,7 +86,14 @@ A quick summary:
 
 A detailed post on Git commit messages: [How To Write a Git Commit Message].
 
-[Jest]: https://github.com/facebook/jest
 [prettier]: https://prettier.io/
 [eslint]: https://github.com/eslint/eslint
 [How To Write a Git Commit Message]: https://chris.beams.io/posts/git-commit/
+[github-ci-build-badge]: https://github.com/oasisprotocol/explorer/actions/workflows/ci-build.yml/badge.svg
+[github-ci-build-link]: https://github.com/oasisprotocol/explorer/actions?query=workflow:ci-build+branch:master
+[github-ci-test-badge]: https://github.com/oasisprotocol/explorer/actions/workflows/ci-test.yml/badge.svg
+[github-ci-test-link]: https://github.com/oasisprotocol/explorer/actions?query=workflow:ci-test+branch:master
+[github-ci-lint-badge]: https://github.com/oasisprotocol/explorer/actions/workflows/ci-lint.yml/badge.svg
+[github-ci-lint-link]: https://github.com/oasisprotocol/explorer/actions?query=workflow:ci-lint+branch:master
+[github-renovate-badge]: https://img.shields.io/badge/renovate-enabled-brightgreen.svg
+[github-renovate-link]: https://renovatebot.com
