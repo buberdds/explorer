@@ -96,4 +96,4 @@ A detailed post on Git commit messages: [How To Write a Git Commit Message].
 [github-ci-lint-badge]: https://github.com/oasisprotocol/explorer/actions/workflows/ci-lint.yml/badge.svg
 [github-ci-lint-link]: https://github.com/oasisprotocol/explorer/actions?query=workflow:ci-lint+branch:master
 [github-renovate-badge]: https://img.shields.io/badge/renovate-enabled-brightgreen.svg
-[github-renovate-link]: https://renovatebot.com
+[github-renovate-link]: https://www.mend.io/renovate/
