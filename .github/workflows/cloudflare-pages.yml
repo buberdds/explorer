@@ -58,6 +58,7 @@ jobs:
       # On a subsequent run the the original comment will be updated.
       - name: Add Comment to PR
         uses: mshick/add-pr-comment@v2
+        if: always()
         with:
           message: |
             ## Deploying with <a href="https://pages.dev"><img alt="Cloudflare Pages" src="https://user-images.githubusercontent.com/23264/106598434-9e719e00-654f-11eb-9e59-6167043cfa01.png" width="16"></a> Cloudflare Pages
@@ -74,11 +75,7 @@ jobs:
                 <td><a href="${{ steps.cloudflare.outputs.url }}">${{ steps.cloudflare.outputs.url }}</a></td>
                </tr>
             </table>
-      - name: The job has failed
-        if: ${{ failure() }}
-        uses: mshick/add-pr-comment@v2
-        with:
-          message: |
+          message-failure: |
             ## Deploying with <a href="https://pages.dev"><img alt="Cloudflare Pages" src="https://user-images.githubusercontent.com/23264/106598434-9e719e00-654f-11eb-9e59-6167043cfa01.png" width="16"></a> Cloudflare Pages
             <table>
               <tr>
