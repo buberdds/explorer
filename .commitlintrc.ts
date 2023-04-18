@@ -1,4 +1,6 @@
-module.exports = {
+import type { UserConfig } from '@commitlint/types'
+
+const Configuration: UserConfig = {
   defaultIgnores: false,
   rules: {
     'body-max-line-length': [2, 'always', 80],
@@ -9,7 +11,7 @@ module.exports = {
   plugins: [
     {
       rules: {
-        'title-must-not-contain-word': ({ header }, applicable, value) => {
+        'title-must-not-contain-word': ({ header }, when, value: string[] = []) => {
           return [
             !value.some(s => header.includes(s)),
             `Your commit title should not contain one of: ${value.toString()} words`,
@@ -19,3 +21,5 @@ module.exports = {
     },
   ],
 }
+
+module.exports = Configuration
