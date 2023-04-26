@@ -22,20 +22,15 @@ jobs:
         # Checkout pull request HEAD commit instead of merge commit.
         with:
           ref: ${{ github.event.pull_request.head.ref }}
-      - name: Create and append MD file
+      - name: Create MD file
         run: |
-          # PR_TITLE=${{ github.event.pull_request.title }}
-          # PR_NUMBER=${{ github.event.pull_request.number }}
-          # FILE_NAME="${PR_NUMBER}.internal.md"
-          # Create file and add content
-          echo "text content" > .changelog/${{ github.event.pull_request.number }}.internal.md
-
+          FILE_NAME="${{ github.event.pull_request.number }}.internal.md"
+          echo ${{ github.event.pull_request.title }} > .changelog/${{ FILE_NAME }}.internal.md
+      - name: Commit MD file
+        run: |
           git config --local user.email "$(git log --pretty='%ae' -1)"
           git config --local user.name "renovate[bot]"
-
-      - name: Commit
-        run: |
-          git add .changelog/${{ github.event.pull_request.number }}.internal.md
+          git add .changelog/${{ FILE_NAME }}.internal.md
           git commit -m "Add fragment"
       - name: Push changes back to branch
         run: |
