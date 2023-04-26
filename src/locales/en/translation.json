@@ -1,0 +1,257 @@
+{
+  "account": {
+    "emptyTokenList": "This account holds no {{token}} tokens.",
+    "ERC20": "ERC-20",
+    "ERC721": "ERC-721",
+    "noTokens": "This account holds no tokens",
+    "showMore": "+ {{counter}} more",
+    "title": "Account",
+    "evmTokens": "EVM tokens",
+    "tokensListTitle": "{{token}} Tokens",
+    "transactionsListTitle": "Account Transactions",
+    "totalReceived": "Total Received",
+    "totalSent": "Total Sent"
+  },
+  "activeAccounts": {
+    "title": "Active Accounts",
+    "tooltip": "{{value, number}} accounts"
+  },
+  "blocks": {
+    "latest": "Latest Blocks"
+  },
+  "block": {
+    "gasUsed": "{{value, number}} | {{percentage, number}}"
+  },
+  "buildInternal": "Please note this is an internal launch meant to gather your feedback. Please share your feedback with screenshots through this from: ",
+  "buildPreview": "Please note this is an experimental build of Oasis Explorer and that data that is shown might be incorrect.",
+  "clipboard": {
+    "label": "Copy to clipboard",
+    "success": "Copied!"
+  },
+  "coinGeckoReferral": "Data from <CoinGeckoLink>CoinGecko</CoinGeckoLink>",
+  "common": {
+    "age": "Age",
+    "active": "Active",
+    "balance": "Balance",
+    "block": "Block",
+    "bytes": "{{value, number}}",
+    "change": "Change",
+    "data": "Data",
+    "emerald": "Emerald",
+    "cipher": "Cipher",
+    "consensus": "Consensus",
+    "ethHash": "ETH hash",
+    "failed": "Failed",
+    "fiatValue": "Fiat value",
+    "fiatValueInUSD": "{{value, currency}}",
+    "fill": "Fill",
+    "formattedBlockTimestamp": "{{timestamp, dateTime}} ({{distance}})",
+    "formattedDateTime": "{{timestamp, dateTime}}",
+    "from": "From",
+    "gasUsed": "Gas used",
+    "gasLimit": "Gas limit",
+    "hash": "Hash",
+    "height": "Height",
+    "loadMore": "Load more",
+    "lessThanAmount": "< {{value}} {{ticker}}",
+    "logs": "Logs",
+    "name": "Name",
+    "paratime": "Paratime",
+    "rose": "ROSE",
+    "size": "Size",
+    "sapphire": "Sapphire",
+    "select": "Select",
+    "smartContract": "Smart Contract",
+    "success": "Success",
+    "status": "Status",
+    "ticker": "Ticker",
+    "timestamp": "Timestamp",
+    "to": "To",
+    "totalSent": "Total Sent",
+    "transactions": "Transactions",
+    "transactionsNumber_one": "1 transaction",
+    "transactionsNumber_other": "{{ count }} transactions",
+    "txnFee": "Txn Fee",
+    "type": "Type",
+    "value": "Value",
+    "valueInRose": "{{value}} ROSE",
+    "viewAll": "View all",
+    "paraTimeOnline": "ParaTime Online"
+  },
+  "nodes": {
+    "title": "Active nodes",
+    "value": "{{value, number}}"
+  },
+  "errors": {
+    "code": "error code",
+    "error": "Error",
+    "unknown": "Unknown error",
+    "unsupportedLayer": "Unsupported layer",
+    "invalidAddress": "Invalid address",
+    "invalidBlockHeight": "Invalid block height",
+    "invalidPageNumber": "Invalid page number",
+    "invalidTxHash": "Invalid transaction hash",
+    "notFoundBlockHeight": "Block not found",
+    "notFoundTx": "Transaction not found",
+    "validateURL": "Please validate provided URL",
+    "validateURLOrGoToFirstTab": "Please check the URL or load the first tab.",
+    "invalidUrl": "Invalid URL"
+  },
+  "footer": {
+    "mobileTitle": "OPF",
+    "title": "Oasis Protocol Foundation",
+    "version": "Version: {{buildSha}}"
+  },
+  "layerPickerModal": {
+    "title": "Paratime Details",
+    "description": "Below is the overview of available ParaTimes. Access the dashboard by selecting the ParaTime of your choice"
+  },
+  "learningMaterials": {
+    "emerald": {
+      "header": "What is the Emerald network?",
+      "description": "The Emerald ParaTime is our official EVM Compatible ParaTime providing smart contract environment with full EVM compatibility."
+    },
+    "sapphire": {
+      "header": "What is the Sapphire network?",
+      "description": "The Sapphire ParaTime is our official confidential EVM Compatible ParaTime providing a smart contract development environment with EVM compatibility."
+    },
+    "header": "Learning materials",
+    "token": {
+      "header": "Token Metrics and Distribution",
+      "description": "Rose is the currency powering the Oasis network."
+    },
+    "transfer": {
+      "header": "How to Transfer ROSE into a ParaTime?",
+      "description": "Rose is the currency powering the {{layer}} network."
+    }
+  },
+  "pageTitle": "Oasis Explorer",
+  "pageHeader": {
+    "emerald": "The official confidential EVM Compatible ParaTime providing a smart contract development environment.",
+    "sapphire": "As our official confidential EVM Compatible ParaTime, Sapphire, provides a smart contract development environment with EVM compatibility.",
+    "consensus": "Our common blockchain technology layer, providing basic services for all ParaTimes."
+  },
+  "pagination": {
+    "first": "First",
+    "last": "Last"
+  },
+  "rosePrice": {
+    "header": "ROSE Price"
+  },
+  "social": {
+    "description": "Be part of the community and stay in the loop on everything Oasis",
+    "discord": "Discord",
+    "header": "Join us",
+    "reddit": "Reddit",
+    "telegram": "Telegram",
+    "twitter": "Twitter",
+    "youtube": "Youtube"
+  },
+  "tableLayoutButton": {
+    "changeView": "Change view"
+  },
+  "totalTransactions": {
+    "header": "Total Transactions",
+    "tooltip": "{{value, number}} total transactions"
+  },
+  "transactions": {
+    "latest": "Latest Transactions",
+    "method": {
+      "consensus": {
+        "deposit": "Consensus Deposit",
+        "withdraw": "Consensus Withdraw"
+      },
+      "evm": {
+        "call": "Contract Call",
+        "create": "Contract Creation"
+      }
+    }
+  },
+  "transaction": {
+    "header": "Transaction",
+    "warningMultipleTransactionsSameHash": "Please make sure you're looking at the right transaction. There is more than one transaction with this hash, which is extremely rare. We are showing the most recent successful one."
+  },
+  "transactionEvent": {
+    "accountsburn": "Tokens burnt",
+    "accountsmint": "Tokens minted",
+    "accountstransfer": "Transfer",
+    "consensusDeposit": "Deposit from consensus",
+    "consensusWithdrawal": "Withdrawal to consensus",
+    "decoded": "Decoded",
+    "evmLog": "EVM log message",
+    "gasUsed": "Gas used"
+  },
+  "transactionStats": {
+    "header": "Transactions Per Day",
+    "tooltip": "{{value}} tx/day"
+  },
+  "transactionsTpsChart": {
+    "tooltip": "{{value, number}} TPS"
+  },
+  "select": {
+    "placeholder": "Select"
+  },
+  "chartDuration": {
+    "today": "Today",
+    "thisWeek": "This week",
+    "thisMonth": "This month",
+    "allTime": "All time",
+    "week": "Week",
+    "month": "Month"
+  },
+  "paraTimeSnapshot": {
+    "header": "ParaTime Snapshot"
+  },
+  "home": {
+    "apiOffline": "Our API is offline. We’re trying to reconnect",
+    "blocks": "Blocks",
+    "exploreBtnText": "Explore Oasis",
+    "txn": "Txn",
+    "zoomOutBtnText": "Zoom out",
+    "helpScreen": {
+      "navigate": "Navigate using your finger",
+      "pinch": "Pinch to zoom in and out",
+      "tap": "Tap to view info",
+      "getStarted": "Get Started",
+      "infoIconAria": "Toggle info screen"
+    },
+    "tooltip": {
+      "comingSoonAria": "Coming soon...",
+      "coming": "Coming",
+      "online": "Online",
+      "openParatime": "Open ParaTime",
+      "sapphireParaTimeDesc": "Confidential EVM Compatible ParaTime providing a smart contract development environment with EVM compatibility",
+      "emeraldParaTimeDesc": "EVM Compatible ParaTime providing smart contract environment with EVM compatibility.",
+      "cipherParaTimeAvailableSoon": "Searching through the Cipher ParaTime will be available soon.",
+      "discoverMore": "Discover more",
+      "consensusParaTimeDesc": "Our scalable, high-throughput, secure, proof-of-stake consensus layer run by a decentralized set of validator nodes.",
+      "close": "Close"
+    }
+  },
+  "search": {
+    "placeholder": "Address, Block, Contract, Txn Hash, Transaction ID, etc",
+    "mobilePlaceholder": "Search Address, Block, Txn, etc",
+    "noResults": {
+      "header": "No results found",
+      "description": "Please try another search query <OptionalBreak>or <HomeLink>explore Oasis</HomeLink></OptionalBreak>"
+    },
+    "results": {
+      "accounts": {
+        "title": "Accounts",
+        "viewLink": "View Account"
+      },
+      "blocks": {
+        "title": "Blocks",
+        "viewLink": "View Block"
+      },
+      "transactions": {
+        "title": "Transactions",
+        "viewLink": "View Transaction"
+      },
+      "count_one": "1 result",
+      "count_other": "{{ count }} results"
+    },
+    "searchBtnText": "Search",
+    "searchSuggestions": "Not sure what to look for? Try out a search: <OptionalBreak><BlockLink><BlockIcon/> Block</BlockLink>, <TransactionLink><TransactionIcon/> Transaction</TransactionLink>, <AccountLink><AccountIcon/> Address</AccountLink></OptionalBreak>"
+  }
+}
