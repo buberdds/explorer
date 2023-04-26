@@ -25,12 +25,12 @@ jobs:
       - name: Create MD file
         run: |
           FILE_NAME="${{ github.event.pull_request.number }}.internal.md"
-          echo ${{ github.event.pull_request.title }} > .changelog/${{ FILE_NAME }}.internal.md
+          echo ${{ github.event.pull_request.title }} > .changelog/${FILE_NAME}.internal.md
       - name: Commit MD file
         run: |
           git config --local user.email "$(git log --pretty='%ae' -1)"
           git config --local user.name "renovate[bot]"
-          git add .changelog/${{ FILE_NAME }}.internal.md
+          git add .changelog/${FILE_NAME}.internal.md
           git commit -m "Add fragment"
       - name: Push changes back to branch
         run: |
