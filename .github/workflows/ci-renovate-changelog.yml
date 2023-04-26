@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v3
         # Checkout pull request HEAD commit instead of merge commit.
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          ref: ${{ github.event.pull_request.head.ref }}
       - name: Create and append MD file
         run: |
           # PR_TITLE=${{ github.event.pull_request.title }}
