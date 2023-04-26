@@ -1,5 +1,5 @@
 # NOTE: This name appears in GitHub's Checks API and in workflow's status badge.
-name: ci-renovate-changelog
+name: ci-renovate-bot
 
 # Trigger the workflow when:
 on:
@@ -9,9 +9,9 @@ on:
     branches: [master]
 
 jobs:
-  renovate-changelog:
+  add-changelog:
     # NOTE: This name appears in GitHub's Checks API.
-    name: renovate-changelog
+    name: add-changelog
     runs-on: ubuntu-latest
     permissions:
       contents: write
