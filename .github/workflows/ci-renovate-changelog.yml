@@ -25,7 +25,7 @@ jobs:
           # PR_NUMBER=${{ github.event.pull_request.number }}
           # FILE_NAME="${PR_NUMBER}.internal.md"
           # Create file and add content
-          echo "text content" > .changelog/${{ github.event.pull_request.number }}.txt
+          echo "text content" > .changelog/${{ github.event.pull_request.number }}.internal.md
 
           git config --local user.email "$(git log --pretty='%ae' -1)"
           git config --local user.name "renovate[bot]"
