@@ -22,8 +22,6 @@ jobs:
         # Checkout pull request HEAD commit instead of merge commit.
         with:
           ref: ${{ github.event.pull_request.head.ref }}
-          # Add token input to authenticate with GitHub and push changes.
-          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Create and append MD file
         run: |
           # PR_TITLE=${{ github.event.pull_request.title }}
