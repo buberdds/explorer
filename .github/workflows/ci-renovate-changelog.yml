@@ -35,7 +35,7 @@ jobs:
           git config --local user.email "$(git log --pretty='%ae' -1)"
           git config --local user.name "renovate[bot]"
           git add ${{ steps.vars.outputs.FILE_NAME }}
-          git commit -m "Add fragment"
+          git commit --amend --no-edit
       - name: Push changes back to branch
         run: |
           git push origin ${{ github.event.pull_request.head.ref }}
