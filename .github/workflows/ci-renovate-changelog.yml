@@ -38,4 +38,4 @@ jobs:
           git commit --amend --no-edit
       - name: Push changes back to branch
         run: |
-          git push origin ${{ github.event.pull_request.head.ref }}
+          git push --force-with-lease origin ${{ github.event.pull_request.head.ref }}
