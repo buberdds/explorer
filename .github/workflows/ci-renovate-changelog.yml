@@ -32,8 +32,8 @@ jobs:
           echo ${{ github.event.pull_request.title }} > ${{ steps.vars.outputs.FILE_NAME }}
       - name: Commit MD file
         run: |
-          # git config --local user.email "$(git log --pretty='%ae' -1)"
-          # git config --local user.name "renovate[bot]"
+          git config --local user.email "$(git log --pretty='%ae' -1)"
+          git config --local user.name "renovate[bot]"
           git add ${{ steps.vars.outputs.FILE_NAME }}
           git commit --amend --no-edit
       - name: Push changes back to branch
