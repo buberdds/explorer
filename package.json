@@ -18,6 +18,7 @@
     "lint:fix": "yarn run lint --fix",
     "gitlint": "node ./internals/scripts/gitlint.js",
     "docslint": "markdownlint --ignore '**/node_modules/**' '**/*.md'",
+    "changeloglint": "markdownlint --config .changelog/.markdownlint.yml --ignore node_modules  .changelog/",
     "prettify": "prettier src internals --write",
     "test": "jest",
     "start-storybook": "storybook dev -p 6006",
