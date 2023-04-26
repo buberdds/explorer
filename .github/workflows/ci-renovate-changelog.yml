@@ -1,0 +1,39 @@
+# NOTE: This name appears in GitHub's Checks API and in workflow's status badge.
+name: ci-renovate-changelog
+
+# Trigger the workflow when:
+on:
+  # When a pull request event occurs for a pull request against one of the
+  # matched branches.
+  pull_request:
+    branches: [master]
+
+jobs:
+  renovate-changelog:
+    # NOTE: This name appears in GitHub's Checks API.
+    name: renovate-changelog
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        # Checkout pull request HEAD commit instead of merge commit.
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Create and append MD file
+        run: |
+          # PR_TITLE=${{ github.event.pull_request.title }}
+          # PR_NUMBER=${{ github.event.pull_request.number }}
+          # FILE_NAME="${PR_NUMBER}.internal.md"
+          # Create file and add content
+          echo "text content" > ./changelog/foo.txt
+
+          git config --local user.email "$(git log --pretty='%ae' -1)"
+          git config --local user.name "renovate[bot]"
+
+      - name: Commit
+        run: |
+          git add .changelog/${{ github.event.pull_request.number }}.internal.md
+          git commit -m "Add fragment"
+      - name: Push changes back to branch
+        run: |
+          git push origin ${{ github.event.pull_request.head.ref }}
