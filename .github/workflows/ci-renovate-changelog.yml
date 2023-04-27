@@ -31,13 +31,14 @@ jobs:
         id: vars
         run: |
           echo "FILE_NAME=.changelog/${{ github.event.pull_request.number }}.internal.md" >> $GITHUB_OUTPUT
-      - name: Create MD file
+      - name: Create Change Log file
         run: |
           echo ${{ github.event.pull_request.title }} > ${{ steps.vars.outputs.FILE_NAME }}
-      - name: Commit MD file
+      - name: Commit Change Log file
         run: |
+          # Set git user email and name to match author of the last commit.
           git config --local user.email "$(git log --pretty='%ae' -1)"
-          git config --local user.name "renovate[bot]"
+          git config --local user.name "$(git log --pretty=format:'%an' -1)"
           git add ${{ steps.vars.outputs.FILE_NAME }}
           git commit --amend --no-edit
       - name: Push changes back to branch
