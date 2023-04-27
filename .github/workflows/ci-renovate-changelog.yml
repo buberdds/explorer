@@ -15,6 +15,7 @@ jobs:
     # Trigger job only for dependency update bot.
     if: github.actor == 'renovate[bot]'
     runs-on: ubuntu-latest
+    # Permissions needed to push changes back to branch.
     permissions:
       contents: write
       pull-requests: write
@@ -25,6 +26,8 @@ jobs:
         with:
           # Needed for correct git commit --amend.
           fetch-depth: 0
+          # Checkout pull request HEAD commit instead of merge commit.
+          ref: ${{ github.event.pull_request.head.sha }}
       - name: Set workflow variables
         # Id is needed to access output in a next step.
         id: vars
