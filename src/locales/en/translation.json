@@ -1,6 +1,6 @@
 {
   "account": {
-    "emptyTokenList": "This account holds no {{token}} tokens.",
+    "emptyTokenList": "This account holds no {{token}} tokens. v1",
     "ERC20": "ERC-20",
     "ERC721": "ERC-721",
     "noTokens": "This account holds no tokens",
