@@ -21,15 +21,13 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      pull-requests: write 
+      pull-requests: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
         # Checkout pull request HEAD commit instead of merge commit.
         with:
-          fetch-depth: 0
           ref: ${{ github.head_ref }}
-          # ref: ${{ github.event.pull_request.head.ref }}
       - name: Set workflow variables
         # Id is needed to access output in a next step.
         id: vars
@@ -47,4 +45,3 @@ jobs:
       - name: Push changes back to branch
         run: |
           git push --force-with-lease origin HEAD:refs/heads/${{ github.head_ref }}
-          # git push --force-with-lease origin ${{ github.event.pull_request.head.ref }}
