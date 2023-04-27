@@ -25,7 +25,6 @@ jobs:
         with:
           # Needed for correct git commit --amend.
           fetch-depth: 0
-          # ref: ${{ github.head_ref }}
       - name: Set workflow variables
         # Id is needed to access output in a next step.
         id: vars
