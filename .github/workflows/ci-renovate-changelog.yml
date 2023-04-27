@@ -30,7 +30,7 @@ jobs:
         # Id is needed to access output in a next step.
         id: vars
         run: |
-          echo "FILE_NAME=.changelog/${{ github.event.pull_request.number }}.internal.md" >> $GITHUB_OUTPUT
+          echo "FILE_NAME=.changelog/${{ github.event.number }}.internal.md" >> $GITHUB_OUTPUT
       - name: Create MD file
         run: |
           echo ${{ github.event.pull_request.title }} > ${{ steps.vars.outputs.FILE_NAME }}
