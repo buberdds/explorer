@@ -34,7 +34,7 @@ jobs:
         with:
           files: |
             build/
-          name: Oasis Explorer ${{ github.ref }}
+          name: Oasis Explorer ${{ github.ref_name }}
           body: |
             Release ${{ github.ref }}
         env:
