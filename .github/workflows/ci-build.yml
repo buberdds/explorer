@@ -28,3 +28,8 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Build app
         run: yarn build
+      - name: Create and upload build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: explorer-build
+          path: build
