@@ -29,6 +29,8 @@ jobs:
       - name: Build app
         run: yarn build
       - name: Create and upload build artifacts
+        # Upload build artifacts on push event only.
+        if: github.event_name == 'push'
         uses: actions/upload-artifact@v2
         with:
           name: explorer-build
