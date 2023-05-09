@@ -11,6 +11,9 @@ on:
       # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#patterns-to-match-branches-and-tags.
       - 'v[0-9]+.[0-9]+*'
 
+permissions:
+  contents: write
+
 jobs:
   prepare-release:
     runs-on: ubuntu-latest
@@ -30,7 +33,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            build
+            build/
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
           body: |
