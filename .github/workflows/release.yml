@@ -45,7 +45,7 @@ jobs:
         with:
           files: |
             build/
-          name: Oasis Explorer ${{ github.ref_name#v }}
+          name: Oasis Explorer ${{ github.ref_name }#v }
           body: |
             For a list of changes in this release, see the [Change Log].
 
