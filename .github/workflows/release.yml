@@ -39,13 +39,13 @@ jobs:
         with:
           files: |
             build/
-          name: Oasis Explorer ${{ VERSION }}
+          name: Oasis Explorer ${{ steps.vars.outputs.VERSION }}
           body: |
             For a list of changes in this release, see the [Change Log].
 
             *NOTE: If you are upgrading from an earlier release, please **carefully review**
             the [Change Log] for **Removals and Breaking changes**.*
 
-            [Change Log]: https://github.com/oasisprotocol/explorer/blob/${{ TAG }}/CHANGELOG.md
+            [Change Log]: https://github.com/oasisprotocol/explorer/blob/${{ steps.vars.outputs.TAG }}/CHANGELOG.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
