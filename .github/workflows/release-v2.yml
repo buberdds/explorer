@@ -1,0 +1,47 @@
+# NOTE: This name appears in GitHub's Checks API and in workflow's status badge.
+name: release-extract-changelog-test
+
+# Trigger the workflow when:
+on:
+  # A push occurs to one of the matched tags.
+  push:
+    tags:
+      # Pattern that roughly matches Oasis Core's version tags.
+      # For more details on GitHub Actions' pattern match syntax, see:
+      # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#patterns-to-match-branches-and-tags.
+      - 'v[0-9]+.[0-9]+*'
+
+jobs:
+  prepare-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          cache: yarn
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Build app
+        run: yarn build
+      - name: Extract changelog summary
+        id: extract_changelog
+        run: |
+          version="2.3.0"
+          markdown=$(awk "/## \[${version}\]/{flag=1;next}/## \[/{flag=0}flag" CHANGELOG.md)
+          echo "$markdown" > CHANGELOG_SUMMARY.md
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            build/
+          # Header of the release.
+          name: Oasis Explorer ${{ github.ref_name }}
+          # Body of release notes.
+          body_path: ${{ github.workspace }}/CHANGELOG_SUMMARY.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
