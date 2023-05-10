@@ -32,8 +32,7 @@ jobs:
         # Id is needed to access output in a next step.
         id: vars
         run: |
-          TAG=${{ github.ref_name }}
-          echo "VERSION=${TAG#v}" >> $GITHUB_ENV
+          echo "VERSION=${${{ github.ref_name }}#v}" >> $GITHUB_ENV
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
@@ -46,6 +45,6 @@ jobs:
             *NOTE: If you are upgrading from an earlier release, please **carefully review**
             the [Change Log] for **Removals and Breaking changes**.*
 
-            [Change Log]: https://github.com/oasisprotocol/explorer/blob/${{ steps.vars.outputs.TAG }}/CHANGELOG.md
+            [Change Log]: https://github.com/oasisprotocol/explorer/blob/${{ github.ref_name }}/CHANGELOG.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
