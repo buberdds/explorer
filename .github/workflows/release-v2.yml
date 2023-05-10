@@ -31,7 +31,7 @@ jobs:
       - name: Extract changelog summary
         id: extract_changelog
         run: |
-          version="2.3.0"
+          version="0.0.2"
           markdown=$(awk "/## \[${version}\]/{flag=1;next}/## \[/{flag=0}flag" CHANGELOG.md)
           echo "$markdown" > CHANGELOG_SUMMARY.md
       - name: Release
