@@ -32,7 +32,7 @@ jobs:
         # Id is needed to access output in a next step.
         id: vars
         run: |
-          VERSION=$(echo ${{ github.ref_name }} | sed 's/^v//') >> $GITHUB_OUTPUT
+          echo "VERSION=$(echo ${{ github.ref_name }} | sed 's/^v//')" >> "$GITHUB_OUTPUT"
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
