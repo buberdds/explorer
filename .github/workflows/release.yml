@@ -32,7 +32,8 @@ jobs:
         # Id is needed to access output in a next step.
         id: vars
         run: |
-          echo "VERSION=${${{ github.ref_name }}#v}" >> $GITHUB_ENV
+          TAG=${{ github.ref_name }}
+          echo "VERSION=${TAG#v}" >> $GITHUB_ENV
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
