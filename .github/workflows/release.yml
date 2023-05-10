@@ -28,30 +28,24 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Build app
         run: yarn build
-      # Do we want to auto gen changelog here, or do it manually?
-      - name: Set up Python 3
-        uses: actions/setup-python@v4.2.0
-        with:
-          python-version: '3.x'
-      - name: Install towncrier
+      - name: Set workflow variables
+        # Id is needed to access output in a next step.
+        id: vars
         run: |
-          python -m pip install https://github.com/oasisprotocol/towncrier/archive/oasis-master.tar.gz
-      # Do we want to use draft option here for change log or action should remove change log fragments?
-      - name: Create Change Log draft
-        run: |
-          towncrier build --draft --version ${{ github.ref_name }} > CHANGELOG_SUMMARY.md
+          TAG=${{ github.event.release.tag_name }}
+          echo "VERSION=${TAG#v}" >> $GITHUB_ENV
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
           files: |
             build/
-          name: Oasis Explorer ${{ github.ref_name }#v }
+          name: Oasis Explorer ${{ VERSION }}
           body: |
             For a list of changes in this release, see the [Change Log].
 
             *NOTE: If you are upgrading from an earlier release, please **carefully review**
             the [Change Log] for **Removals and Breaking changes**.*
 
-            [Change Log]: https://github.com/oasisprotocol/explorer/blob/${{ github.ref_name }}/CHANGELOG.md
+            [Change Log]: https://github.com/oasisprotocol/explorer/blob/${{ TAG }}/CHANGELOG.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
