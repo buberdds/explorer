@@ -28,16 +28,27 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Build app
         run: yarn build
+      - name: Upload build artifacts
+        # Upload build artifacts on push event.
+        if: github.event_name == 'push'
+        uses: actions/upload-artifact@v3
+        with:
+          name: explorer-build
+          path: build
       - name: Set workflow variables
         # Id is needed to access output in a next step.
         id: vars
         run: |
           echo "VERSION=$(echo ${{ github.ref_name }} | sed 's/^v//')" >> "$GITHUB_OUTPUT"
+      - name: Download artifacts
+        uses: actions/download-artifact@v3
+        with:
+          path: ./ explorer-build
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            build/
+            explorer-build/*/*
           name: Oasis Explorer ${{ steps.vars.outputs.VERSION }}
           body: |
             For a list of changes in this release, see the [Change Log].
