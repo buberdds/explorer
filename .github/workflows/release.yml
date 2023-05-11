@@ -29,7 +29,9 @@ jobs:
       - name: Build app
         run: yarn build
       - name: Create zip file
-        run: zip -r explorer-build.zip build/
+        run: |
+          cd build/
+          zip -r ../explorer-build.zip .
       - name: Set workflow variables
         # Id is needed to access output in a next step.
         id: vars
