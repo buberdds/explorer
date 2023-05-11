@@ -28,6 +28,8 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Build app
         run: yarn build
+      - name: Create zip file
+        run: zip -r explorer-build.zip build/
       - name: Set workflow variables
         # Id is needed to access output in a next step.
         id: vars
@@ -37,7 +39,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            build/
+            explorer-build.zip
           name: Oasis Explorer ${{ steps.vars.outputs.VERSION }}
           body: |
             For a list of changes in this release, see the [Change Log].
