@@ -43,7 +43,7 @@ jobs:
       - name: Download artifacts
         uses: actions/download-artifact@v3
         with:
-          path: ./ explorer-build
+          path: ./explorer-build
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
