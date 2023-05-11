@@ -1,7 +1,7 @@
 const execSync = require('child_process').execSync
 const semver = require('semver')
 const glob = require('glob')
-const packageJson = require('./../../package.json') // replace with the path to your package.json file
+const packageJson = require('./../../package.json')
 
 const folderPath = '.changelog/'
 const majorPattern = `${folderPath}'*breaking*.md'`
@@ -31,3 +31,4 @@ if (semver.lte(version, packageJson.version)) {
 }
 
 execSync(`yarn version --new-version ${version}`, { stdio: 'inherit' })
+execSync(`towncrier build --version ${version}`, { stdio: 'inherit' })
