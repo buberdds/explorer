@@ -43,7 +43,12 @@ jobs:
       - name: Download artifacts
         uses: actions/download-artifact@v3
         with:
-          path: ./explorer-build
+          name: explorer-build
+
+      # TEMP
+      - name: Display structure of downloaded files
+        run: ls -R
+
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
