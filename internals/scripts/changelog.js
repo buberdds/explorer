@@ -1,7 +1,7 @@
 const execSync = require('child_process').execSync
 const semver = require('semver')
 const glob = require('glob')
-const packageJson = require('./../../package.json')
+const packageJson = require('../../package.json')
 
 const folderPath = '.changelog/'
 const majorPattern = `${folderPath}'*breaking*.md'`
