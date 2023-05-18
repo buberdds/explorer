@@ -26,6 +26,11 @@ jobs:
           cache: yarn
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+      - name: Set workflow variables
+        # Id is needed to access output in a next step.
+        id: vars
+        run: |
+          echo "SHORT_SHA=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
       - name: Build app
         run: yarn build
       - name: Create and upload build artifacts
@@ -33,5 +38,5 @@ jobs:
         if: github.event_name == 'push'
         uses: actions/upload-artifact@v3
         with:
-          name: explorer-build
+          name: oasis-explorer-${{ steps.vars.outputs.SHORT_SHA }}-${{ steps.vars.outputs.SHORT_SHA2 }}
           path: build
