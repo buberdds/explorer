@@ -38,5 +38,5 @@ jobs:
         if: github.event_name == 'push'
         uses: actions/upload-artifact@v3
         with:
-          name: oasis-explorer-${{ steps.vars.outputs.SHORT_SHA }}-${{ steps.vars.outputs.SHORT_SHA2 }}
+          name: oasis-explorer-${{ steps.vars.outputs.SHORT_SHA }}
           path: build
