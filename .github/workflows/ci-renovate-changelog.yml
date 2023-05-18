@@ -16,9 +16,11 @@ jobs:
     if: github.actor == 'renovate[bot]'
     runs-on: ubuntu-latest
     # Permissions needed to push changes back to branch.
-    permissions:
-      contents: write
-      pull-requests: write
+    # permissions:
+    # Enable creating, updating, or deleting files
+    # contents: write
+    # Enable updating pull request
+    # pull-requests: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
