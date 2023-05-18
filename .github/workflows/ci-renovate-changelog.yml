@@ -18,9 +18,9 @@ jobs:
     # Permissions needed to push changes back to branch.
     permissions:
       # Enable creating, updating, or deleting files
-      # contents: write
+      contents: write
       # Enable updating pull request
-      pull-requests: write
+      # pull-requests: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
