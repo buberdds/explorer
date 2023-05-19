@@ -40,7 +40,7 @@ jobs:
           zip -r ../oasis-explorer-${{ steps.vars.outputs.SHORT_SHA }}.zip .
       - name: Parse CHANGELOG.md file and extract changes for the given version
         run: |
-          node ./internals/scripts/extract-changelog.js ${{ steps.vars.outputs.VERSION }}
+          node ./internals/scripts/version-changelog.js ${{ steps.vars.outputs.VERSION }}
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
