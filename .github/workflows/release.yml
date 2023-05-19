@@ -60,14 +60,14 @@ jobs:
               }
 
               const githubIssueLineRegex = /\[#[0-9]+\]\((https:\/\/github\.com\/[^/]+\/[^/]+\/issues\/[0-9]+)\)/
-              # line with an issue link starts with multiple whitespaces, but we need only one
+              // line with an issue link starts with multiple whitespaces, but we need only one
               if (line.match(githubIssueLineRegex)) {
                 markdown += ` ${line.trim()}`
               } else {
                 markdown += line
               }
 
-              # We don't want to add a newline after a title line or when the last char is a comma
+              // We don't want to add a newline after a title line or when the last char is a comma
               markdown += `${line.startsWith('- ') || line.endsWith(',') ? '' : '\n'}`
             }
           }
