@@ -39,7 +39,6 @@ jobs:
           cd build/
           zip -r ../oasis-explorer-${{ steps.vars.outputs.SHORT_SHA }}.zip .
       - name: Parse CHANGELOG.md file and extract changes for the given version
-      - name: Run Script
         run: |
           node internals/scripts/extract-changelog.js ${{ steps.vars.outputs.VERSION }}
       - name: Release
