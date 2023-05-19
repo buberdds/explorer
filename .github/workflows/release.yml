@@ -40,6 +40,7 @@ jobs:
           zip -r ../oasis-explorer-${{ steps.vars.outputs.SHORT_SHA }}.zip .
       - name: Parse CHANGELOG.md file and extract changes for the given version
         run: |
+          node -e '
           const fs = require('fs')
           const changelog = fs.readFileSync('CHANGELOG.md', 'utf8')
           const lines = changelog.split('\n')
@@ -72,6 +73,7 @@ jobs:
             }
           }
           fs.writeFileSync('CHANGELOG_SUMMARY.md', markdown)
+          '
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
