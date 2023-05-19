@@ -1,6 +1,7 @@
 // Script runs on CI and extracts the changelog for the current version
 // and writes it to CHANGELOG_SUMMARY.md which is used in the release details.
 const fs = require('fs')
+const semver = require('semver')
 
 const args = process.argv.slice(2)
 if (args.length === 0) {
@@ -8,6 +9,12 @@ if (args.length === 0) {
 }
 
 const version = args[0]
+
+if (!semver.valid(version)) {
+  console.log(`Invalid version: ${version}`)
+  process.exit(1)
+}
+
 const changelog = fs.readFileSync('CHANGELOG.md', 'utf8')
 const lines = changelog.split('\n')
 let found = false
