@@ -39,41 +39,9 @@ jobs:
           cd build/
           zip -r ../oasis-explorer-${{ steps.vars.outputs.SHORT_SHA }}.zip .
       - name: Parse CHANGELOG.md file and extract changes for the given version
+      - name: Run Script
         run: |
-          node -e '
-          const fs = require('fs')
-          const changelog = fs.readFileSync('CHANGELOG.md', 'utf8')
-          const lines = changelog.split('\n')
-          let found = false
-          let markdown = ''
-
-          for (const line of lines) {
-            if (line.startsWith('## ')) {
-              if (found || !line.startsWith(`## ${{ steps.vars.outputs.VERSION }}`)) {
-                break
-              }
-              found = true
-            }
-
-            if (found) {
-              if (line === `## ${{ steps.vars.outputs.VERSION }}`) {
-                break
-              }
-
-              const githubIssueLineRegex = /\[#[0-9]+\]\((https:\/\/github\.com\/[^/]+\/[^/]+\/issues\/[0-9]+)\)/
-              // line with an issue link starts with multiple whitespaces, but we need only one
-              if (line.match(githubIssueLineRegex)) {
-                markdown += ` ${line.trim()}`
-              } else {
-                markdown += line
-              }
-
-              // We don't want to add a newline after a title line or when the last char is a comma
-              markdown += `${line.startsWith('- ') || line.endsWith(',') ? '' : '\n'}`
-            }
-          }
-          fs.writeFileSync('CHANGELOG_SUMMARY.md', markdown)
-          '
+          node internals/scripts/extract-changelog.js ${{ steps.vars.outputs.VERSION }}
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
