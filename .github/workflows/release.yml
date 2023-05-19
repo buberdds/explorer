@@ -50,6 +50,6 @@ jobs:
           files: |
             oasis-explorer-${{ steps.vars.outputs.SHORT_SHA }}.zip
           name: Oasis Explorer ${{ steps.vars.outputs.VERSION }}
-        body_path: ${{ github.workspace }}/CHANGELOG_SUMMARY.md
+          body_path: ${{ github.workspace }}/CHANGELOG_SUMMARY.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
