@@ -16,13 +16,11 @@
 {% set lines = text.splitlines() %}
 {% set referenced_issues = "(" + values | join(',\n   ') + ")" %}
 {% if lines | length > 2 and lines[1] == "" %}
-- {{ lines[0] }}
-  {{ referenced_issues }}
+- {{ lines[0] }} {{ referenced_issues }}
 
 {{ lines[2:] | join('\n') }}
 {% else %}
-- {{ text }}
-  {{ referenced_issues }}
+- {{ text }} {{ referenced_issues }}
 {% endif %}
 {% if not loop.last %}
 
