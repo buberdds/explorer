@@ -18,7 +18,7 @@ if (!semver.valid(version)) {
 const changelog = fs.readFileSync('CHANGELOG.md', 'utf8')
 const lines = changelog.split('\n')
 let found = false
-let markdown = ''
+let markdown = '# Change Log\n\n'
 
 for (const line of lines) {
   if (line.startsWith('## ')) {
