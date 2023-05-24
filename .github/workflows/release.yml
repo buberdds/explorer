@@ -12,7 +12,9 @@ on:
       - 'v[0-9]+.[0-9]+*'
 
 jobs:
-  prepare-release:
+  release:
+    # NOTE: This name appears in GitHub's Checks API.
+    name: prepare-release
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -31,6 +33,8 @@ jobs:
       - name: Set workflow variables
         # Id is needed to access output in a next step.
         id: vars
+        # We want to show version without the leading 'v'
+        # and use short SHA of the commit for file name.
         run: |
           echo "VERSION=$(echo ${{ github.ref_name }} | sed 's/^v//')" >> "$GITHUB_OUTPUT"
           echo "SHORT_SHA=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
