@@ -46,12 +46,12 @@
     ]
   },
   "resolutions": {
-    "**/@emotion/styled": "^11.10.6",
+    "**/@emotion/styled": "11.11.0",
     "react-refresh": "0.14.0"
   },
   "dependencies": {
     "@emotion/react": "11.10.6",
-    "@emotion/styled": "11.10.6",
+    "@emotion/styled": "11.11.0",
     "@ethereumjs/util": "8.0.5",
     "@fontsource/figtree": "4.5.3",
     "@fontsource/roboto-mono": "4.5.10",
