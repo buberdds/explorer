@@ -12,6 +12,10 @@ on:
     branches: [master]
 
 jobs:
+  include:
+    - name: Conditionally include renovate part
+      if: github.actor == 'renovate[bot]'
+      uses: ./.github/workflows/ci-renovate.yml
   lint:
     # NOTE: This name appears in GitHub's Checks API.
     name: lint
