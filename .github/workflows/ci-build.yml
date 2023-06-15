@@ -11,6 +11,8 @@ on:
   pull_request:
     branches: [master]
 
+needs: ci-renovate
+
 jobs:
   build:
     # NOTE: This name appears in GitHub's Checks API.
