@@ -23,7 +23,7 @@ jobs:
     name: lint
     runs-on: ubuntu-latest
     if: |
-      github.actor != 'renovate[bot]' || (github.actor == 'renovate[bot]' && github.event_name == 'workflow_run')
+      github.actor != 'renovate[bot]' || github.actor == 'renovate[bot]' && github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == github.head_ref
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
