@@ -12,6 +12,7 @@ on:
     branches: [master]
   # Or when a workflow run is requested by another workflow.
   workflow_run:
+    # We can trigger workflow after appending Change Log fragment to PR
     workflows: ['ci-renovate']
     types:
       - completed
