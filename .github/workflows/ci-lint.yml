@@ -13,13 +13,14 @@ on:
 
 jobs:
   include:
-    - name: Conditionally include renovate part
+    - name: Foo
       if: github.actor == 'renovate[bot]'
       uses: ./.github/workflows/ci-renovate.yml
   lint:
     # NOTE: This name appears in GitHub's Checks API.
     name: lint
     runs-on: ubuntu-latest
+    needs: Foo
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
