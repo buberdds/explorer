@@ -23,6 +23,8 @@ jobs:
     # NOTE: This name appears in GitHub's Checks API.
     name: lint
     runs-on: ubuntu-latest
+    needs: ['include']
+    if: always()
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
