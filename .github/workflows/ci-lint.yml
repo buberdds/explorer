@@ -14,6 +14,9 @@ on:
 jobs:
   include:
     name: Foo
+    permissions:
+      # Enable creating, updating files
+      contents: write
     if: github.actor == 'renovate[bot]'
     uses: ./.github/workflows/ci-renovate.yml
   lint:
