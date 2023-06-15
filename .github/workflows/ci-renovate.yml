@@ -7,6 +7,8 @@ name: ci-renovate
 #   # matched branches.
 #   pull_request:
 #     branches: [master]
+on:
+  workflow_call:
 
 jobs:
   add-changelog:
