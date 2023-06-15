@@ -15,7 +15,7 @@ on:
     # We can trigger workflow after appending Change Log fragment to PR
     workflows: ['ci-renovate']
     types:
-      - completed
+      - rerequested
 
 jobs:
   lint:
@@ -23,7 +23,7 @@ jobs:
     name: lint
     runs-on: ubuntu-latest
     if: |
-      github.actor != 'renovate[bot]' || github.actor == 'renovate[bot]' && github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == github.head_ref
+      github.actor != 'renovate[bot]' || (github.actor == 'renovate[bot]' && github.event.workflow_run.event == 'push')
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
