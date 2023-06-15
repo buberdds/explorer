@@ -18,9 +18,9 @@ jobs:
     uses: ./.github/workflows/ci-renovate.yml
   lint:
     # NOTE: This name appears in GitHub's Checks API.
-    name: include
+    name: lint
     runs-on: ubuntu-latest
-    needs: Foo
+    needs: include
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
