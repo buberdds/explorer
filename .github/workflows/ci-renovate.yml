@@ -32,15 +32,20 @@ jobs:
         id: vars
         run: |
           FILE_NAME=.changelog/${{ github.event.pull_request.number }}.internal.md
-          FILE_EXISTS=$(test -f $FILE_NAME && echo 'true' || echo 'false')
+          FILE_EXISTS=$(test -f $FILE_NAME && echo true || echo false)
           echo "FILE_NAME=$FILE_NAME" >> $GITHUB_ENV
           echo "FILE_EXISTS=$FILE_EXISTS" >> $GITHUB_ENV
+      - name: Foo
+        run: |
+          echo ${{ steps.vars.outputs.FILE_EXISTS }}
+          echo ${{ steps.vars.outputs.FILE_NAME }}
+          ls -la .changelog
       - name: Create Change Log file
-        if: steps.vars.outputs.FILE_EXISTS == 'false'
+        if: steps.vars.outputs.FILE_EXISTS == false
         run: |
           echo "${{ github.event.pull_request.title }}" > ${{ steps.vars.outputs.FILE_NAME }}
       - name: Commit Change Log file
-        if: steps.vars.outputs.FILE_EXISTS== false
+        if: steps.vars.outputs.FILE_EXISTS == false
         run: |
           # Set git user email and name to match author of the last commit.
           git config --local user.email "$(git log --pretty='%ae' -1)"
