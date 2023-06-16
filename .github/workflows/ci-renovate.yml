@@ -52,3 +52,12 @@ jobs:
         if: steps.vars.outputs.FILE_EXISTS == false
         run: |
           git push --force origin HEAD:refs/heads/${{ github.head_ref }}
+      - name: Trigger PR checks
+        if: steps.vars.outputs.FILE_EXISTS == false
+        # https://docs.github.com/en/rest/checks/runs?apiVersion=2022-11-28#rerequest-a-check-run
+        run: |
+          curl -L \
+            -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}"\
+            "https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/requested_checks"
