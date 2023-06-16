@@ -37,8 +37,7 @@ jobs:
           echo "FILE_EXISTS=$FILE_EXISTS" >> $GITHUB_ENV
       - name: Create Change Log file
         if: steps.vars.outputs.FILE_EXISTS == false
-        run: |
-          echo "${{ github.event.pull_request.title }}" > ${{ steps.vars.outputs.FILE_NAME }}
+        run: echo "Testing action trigger" > ${{ steps.vars.outputs.FILE_NAME }}
       - name: Commit Change Log file
         if: steps.vars.outputs.FILE_EXISTS == false
         run: |
