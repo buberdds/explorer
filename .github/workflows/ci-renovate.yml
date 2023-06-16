@@ -31,8 +31,10 @@ jobs:
         # Id is needed to access output in a next step.
         id: vars
         run: |
-          echo "FILE_NAME=.changelog/${{ github.event.pull_request.number }}.internal.md" >> $GITHUB_OUTPUT
-          echo "FILE_EXISTS=$(test -f $FILE_NAME && echo true || echo false)" >> $GITHUB_OUTPUT
+          FILE_NAME=.changelog/${{ github.event.pull_request.number }}.internal.md
+          FILE_EXISTS=$(test -f $FILE_NAME && echo true || echo false)
+          echo "FILE_NAME=$FILE_NAME" >> $GITHUB_ENV
+          echo "FILE_EXISTS=$FILE_EXISTS" >> $GITHUB_ENV
       - name: Foo
         run: |
           echo ${{ steps.vars.outputs.FILE_EXISTS }}
