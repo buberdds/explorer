@@ -33,6 +33,9 @@ jobs:
         run: |
           echo "FILE_NAME=.changelog/${{ github.event.pull_request.number }}.internal.md" >> $GITHUB_OUTPUT
           echo "FILE_EXISTS=$(test -f $FILE_NAME && echo true || echo false)" >> $GITHUB_OUTPUT
+      - name: Check File Existence
+        run: |
+          ls -la .changelog/${{ github.event.pull_request.number }}.internal.md
       - name: Foo
         run: |
           echo ${{ steps.vars.outputs.FILE_EXISTS }}
