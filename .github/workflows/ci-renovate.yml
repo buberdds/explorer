@@ -32,10 +32,13 @@ jobs:
         id: vars
         run: |
           echo "FILE_NAME=.changelog/${{ github.event.pull_request.number }}.internal.md" >> $GITHUB_OUTPUT
+          echo "FILE_EXISTS=$(test -f ${{ steps.vars.outputs.FILE_NAME }} && echo true || echo false)" >> $GITHUB_OUTPUT
       - name: Create Change Log file
+        if: steps.file-check.outputs.FILE_EXISTS == 'false'
         run: |
           echo ${{ github.event.pull_request.title }} > ${{ steps.vars.outputs.FILE_NAME }}
       - name: Commit Change Log file
+        if: steps.file-check.outputs.FILE_EXISTS == 'false'
         run: |
           # Set git user email and name to match author of the last commit.
           git config --local user.email "$(git log --pretty='%ae' -1)"
@@ -43,5 +46,6 @@ jobs:
           git add ${{ steps.vars.outputs.FILE_NAME }}
           git commit --amend --no-edit
       - name: Push changes back to branch
+        if: steps.file-check.outputs.FILE_EXISTS == 'false'
         run: |
           git push --force origin HEAD:refs/heads/${{ github.head_ref }}
