@@ -40,6 +40,7 @@ jobs:
         run: |
           echo ${{ steps.vars.outputs.FILE_EXISTS }}
           echo ${{ steps.vars.outputs.FILE_NAME }}
+          ls -la .changelog
       - name: Create Change Log file
         if: steps.vars.outputs.FILE_EXISTS == 'false'
         run: |
