@@ -33,16 +33,12 @@ jobs:
         run: |
           echo "FILE_NAME=.changelog/${{ github.event.pull_request.number }}.internal.md" >> $GITHUB_OUTPUT
           echo "FILE_EXISTS=$(test -f $FILE_NAME && echo true || echo false)" >> $GITHUB_ENV
-      - name: Foo
-        run: |
-          echo ${{ steps.vars.outputs.FILE_EXISTS }}
-          echo ${{ steps.vars.outputs.FILE_NAME }}
-          ls -la .changelog
       - name: Create Change Log file
         if: steps.vars.outputs.FILE_EXISTS == false
         run: |
           echo ${{ steps.vars.outputs.FILE_EXISTS }}
           echo ${{ steps.vars.outputs.FILE_NAME }}
+          ls -la .changelog 
           echo "${{ github.event.pull_request.title }}" > ${{ steps.vars.outputs.FILE_NAME }}
       - name: Commit Change Log file
         if: steps.vars.outputs.FILE_EXISTS == false
