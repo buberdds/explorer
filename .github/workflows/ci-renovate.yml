@@ -40,6 +40,8 @@ jobs:
           echo ${{ steps.vars.outputs.FILE_EXISTS }}
           echo ${{ steps.vars.outputs.FILE_NAME }}
           ls -la .changelog
+      - name: Debug FILE_EXISTS
+        run: echo "FILE_EXISTS value: ${{ steps.vars.outputs.FILE_EXISTS }}"
       - name: Create Change Log file
         if: steps.vars.outputs.FILE_EXISTS == 'false'
         run: |
