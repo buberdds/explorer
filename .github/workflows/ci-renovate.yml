@@ -36,6 +36,7 @@ jobs:
       - name: Create Change Log file
         if: steps.vars.outputs.FILE_EXISTS == 'false'
         run: |
+          echo ${{ steps.vars.outputs.FILE_EXISTS }}
           echo ${{ github.event.pull_request.title }} > ${{ steps.vars.outputs.FILE_NAME }}
       - name: Commit Change Log file
         if: steps.vars.outputs.FILE_EXISTS == 'false'
