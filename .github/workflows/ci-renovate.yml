@@ -32,7 +32,7 @@ jobs:
         id: vars
         run: |
           echo "FILE_NAME=.changelog/${{ github.event.pull_request.number }}.internal.md" >> $GITHUB_OUTPUT
-          echo "FILE_EXISTS=$(test -f ${{ steps.vars.outputs.FILE_NAME }} && echo true || echo false)" >> $GITHUB_OUTPUT
+          echo "FILE_EXISTS=$(test -f $FILE_NAME && echo true || echo false)" >> $GITHUB_OUTPUT
       - name: Create Change Log file
         if: steps.file-check.outputs.FILE_EXISTS == 'false'
         run: |
