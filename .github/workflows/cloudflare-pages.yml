@@ -66,6 +66,7 @@ jobs:
           directory: build
           # Enable Wrangler v3
           wranglerVersion: '3'
+          branch: cl
       # On a subsequent run the original comment will be updated.
       - name: Update PR comment
         uses: mshick/add-pr-comment@v2
