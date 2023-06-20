@@ -87,7 +87,11 @@ jobs:
               <tr>
                 <td><strong>Alias:</strong></td>
                 <td><a href="${{ steps.cloudflare.outputs.alias }}">${{ steps.cloudflare.outputs.alias }}</a></td>
-               </tr>
+              </tr>
+              <tr>
+                <td><strong>Environment:</strong></td>
+                <td>${{ steps.cloudflare.outputs.environment }}</td>
+              </tr>
             </table>
           message-failure: |
             ## Deployed to <a href="https://pages.dev">Cloudflare Pages</a>
