@@ -59,7 +59,7 @@ jobs:
           echo "CLOUDFLARE_DEPLOY_ALIAS=https://${{ github.head_ref }}.oasis-explorer.pages.dev/" >> $GITHUB_OUTPUT
       - name: Debug
         run: |
-          echo {{ steps.cloudflare.vars.CLOUDFLARE_DEPLOY_ALIAS }}
+          echo ${{ steps.cloudflare.vars.CLOUDFLARE_DEPLOY_ALIAS }}
       - name: Build app
         run: yarn build
       - name: Publish to Cloudflare Pages
