@@ -22,12 +22,6 @@ jobs:
       contents: read
       pull-requests: write
     steps:
-      - name: Set workflow variables
-        # Id is needed to access output in a next step.
-        id: vars
-        # Alias returned by Cloudflare Pages is buggy and does not return branch url always so set it manually.
-        run: |
-          echo "CLOUDFLARE_DEPLOY_ALIAS=https://${{ github.head_ref }}.oasis-explorer.pages.dev/" >> $GITHUB_OUTPUT
       # In progress comment will be updated with a deploy status.
       - name: Add in progress comment to PR
         # We want to add in progress comment on a pull request event only.
@@ -57,6 +51,15 @@ jobs:
           cache: yarn
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+      - name: Set workflow variables
+        # Id is needed to access output in a next step.
+        id: vars
+        # Alias returned by Cloudflare Pages action is buggy and does not return branch url always.
+        run: |
+          echo "CLOUDFLARE_DEPLOY_ALIAS=https://${{ github.head_ref }}.oasis-explorer.pages.dev/" >> $GITHUB_OUTPUT
+      - name: Debug
+        run: |
+          echo {{ steps.cloudflare.vars.CLOUDFLARE_DEPLOY_ALIAS }}
       - name: Build app
         run: yarn build
       - name: Publish to Cloudflare Pages
