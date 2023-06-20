@@ -102,7 +102,7 @@ jobs:
               </tr>
               <tr>
                 <td><strong>Manual alias:</strong></td>
-                <td><a href="${{ steps.vars.outputsCLOUDFLARE_DEPLOY_ALIAS }}">${{ steps.vars.outputsCLOUDFLARE_DEPLOY_ALIAS }}</a></td>
+                <td><a href="${{ steps.vars.outputs.CLOUDFLARE_DEPLOY_ALIAS }}">${{ steps.vars.outputs.CLOUDFLARE_DEPLOY_ALIAS }}</a></td>
               </tr>
               <tr>
                 <td><strong>Environment:</strong></td>
