@@ -27,7 +27,7 @@ jobs:
         id: vars
         # Alias returned by Cloudflare Pages is buggy and does not return branch url always so set it manually.
         run: |
-          echo "CLOUDFLARE_DEPLOY_ALIAS=https://${{ ${{ github.head_ref }} }}.oasis-explorer.pages.dev/" >> $GITHUB_OUTPUT
+          echo "CLOUDFLARE_DEPLOY_ALIAS=https://${{ github.head_ref }}.oasis-explorer.pages.dev/" >> $GITHUB_OUTPUT
       # In progress comment will be updated with a deploy status.
       - name: Add in progress comment to PR
         # We want to add in progress comment on a pull request event only.
