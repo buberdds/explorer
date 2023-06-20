@@ -64,6 +64,8 @@ jobs:
           projectName: oasis-explorer
           # Use output directory of build command.
           directory: build
+          # Enable Wrangler v3
+          wranglerVersion: '3'
       # On a subsequent run the original comment will be updated.
       - name: Update PR comment
         uses: mshick/add-pr-comment@v2
