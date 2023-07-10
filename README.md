@@ -1,5 +1,3 @@
-bump commit 2
-
 # Oasis Explorer
 
 [![CI build status][github-ci-build-badge]][github-ci-build-link]
