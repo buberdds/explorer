@@ -67,6 +67,9 @@ jobs:
             -d "$PAYLOAD" \
             "https://api.github.com/repos/${{ github.repository }}/dispatches"
 
+In this updated workflow, we removed the unnecessary fields from the payload and included only the "commit_hash" field in the custom payload. When you dispatch the pull_request event using this payload, it will include the new commit hash in the custom data. The receiving workflow listening for the "pull_request" event will need to extract and use this "commit_hash" information to process the event based on the new commit.
+
+
       # - name: Dispatch custom event FooBar
       #   run: |
       #     # Customize the payload as needed
