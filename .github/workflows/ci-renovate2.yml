@@ -52,7 +52,7 @@ jobs:
           # git push origin HEAD:refs/heads/${{ github.head_ref }}
 
       - name: Create Check Run
-        uses: actions/github-script@v5
+        uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.PAT_SECRET }}
           script: |
