@@ -65,7 +65,7 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           # Project created via Cloudflare dashboard or
           # npx wrangler pages project create <project-name>
-          command: deploy ./build --project-name=oasis-explorer-cloudflare-test --branch ${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || '' }}
+          command: pages deploy ./build --project-name=oasis-explorer-cloudflare-test --branch ${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || '' }}
       - name: print wrangler command output
         env:
           CMD_OUTPUT: ${{ steps.deploy.outputs.command-output }}
