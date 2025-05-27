@@ -155,9 +155,7 @@ export const HomePage: FC = () => {
       <NetworkOfflineBanner wantedNetwork={network} />
       <HomepageLayout>
         <Content>
-          <LogotypeBox>
-            <Logotype showText />
-          </LogotypeBox>
+          <LogotypeBox>v1</LogotypeBox>
           <SearchInputContainer transparent={isGraphZoomedIn && !searchHasFocus}>
             <SearchInputBox>
               <Search disabled={!isApiReachable} variant={searchVariant} onFocusChange={onFocusChange} />
