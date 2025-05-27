@@ -63,6 +63,7 @@ jobs:
           # Acquired from Cloudflare dashboard Compute > Workers & Pages or
           # dashboard url: https://dash.cloudflare.com/<account-id>/
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: '4.16.1'
       - name: print wrangler command output
         env:
           CMD_OUTPUT: ${{ steps.deploy.outputs.command-output }}
