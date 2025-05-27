@@ -1,7 +1,11 @@
 {
   "name": "oasis-explorer",
-  "compatibility_date": "2025-05-27",
+  "compatibility_date": "2025-05-05",
   "assets": {
     "directory": "./build/"
+  },
+  "vars": {
+    "YARN_VERSION": "1.22.19",
+    "NODE_VERSION": "20.19.0"
   }
 }
