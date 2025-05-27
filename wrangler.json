@@ -1,0 +1,7 @@
+{
+  "name": "oasis-explorer",
+  "compatibility_date": "2025-05-27",
+  "assets": {
+    "directory": "./build/"
+  }
+}
