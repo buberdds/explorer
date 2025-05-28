@@ -64,7 +64,7 @@ jobs:
           # dashboard url: https://dash.cloudflare.com/<account-id>/
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           wranglerVersion: '4.16.1'
-          command: deploy
+          command: deploy --name cloudflare-worker-test-name
       - name: print wrangler command output
         env:
           CMD_OUTPUT: ${{ steps.deploy.outputs.command-output }}
